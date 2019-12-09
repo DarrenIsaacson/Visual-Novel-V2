@@ -25,7 +25,7 @@ Another window should pop up, here we need to set this class as a application co
 
 ![](tutorial_Images/Windows_Capture3.png)
 
- Click on the + sign, look for application and open application.
+Click on the + sign, look for application and open application.
 
 ![](tutorial_Images/Windows_Capture4.png)
 
@@ -34,4 +34,15 @@ Copy the information that is written to parameter. The click apply and ok.
 ![](tutorial_Images/Windows_Capture5.png)
 
 You should be able to run the desktopLauncher Class to try out the visual novel in IntelliJ. This method is universal to both mac and windows.
+
+# Credit
+
+Main Contributors to the project is Lee Stemkoski who is the writer of Java Game Development with LibGDX. I personally did more of the code modifications.
+
+Main art contributors - Slaiinex
+
+Story Boarding - Myself (DarrenIsaacson) and (Yandere)
+
+
+
 
