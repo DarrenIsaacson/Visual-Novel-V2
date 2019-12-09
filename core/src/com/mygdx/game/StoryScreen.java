@@ -29,6 +29,7 @@ public class StoryScreen extends BaseScreen {
         BaseActor.setWorldBounds(background);
 
         rose = new Rose(0,0, mainStage);
+        rose.setSize(480,600);
 
         dialogBox = new DialogBox(0,0, uiStage);
         dialogBox.setDialogSize(600, 150);

@@ -7,6 +7,9 @@ import com.mygdx.game.VisNovGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "Bad Dream";
+		config.height = 600;
+		config.width = 1000;
 		new LwjglApplication(new VisNovGame(), config);
 	}
 }

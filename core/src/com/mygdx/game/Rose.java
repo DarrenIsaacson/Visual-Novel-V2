@@ -8,6 +8,7 @@ public class Rose extends BaseActor{
     public Animation grin;
 
     Rose(float x, float y, Stage s){
+
         super(x,y,s);
         normal = loadTexture("Rose normal.png");
         grin = loadTexture("Rose normal.png");
