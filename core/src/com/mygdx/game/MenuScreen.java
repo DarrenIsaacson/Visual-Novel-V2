@@ -16,7 +16,7 @@ public class MenuScreen extends BaseScreen{
         background.loadTexture( "misc_sky.jpg" );
         background.setSize(1000,600);
         BaseActor title = new BaseActor(0,0, mainStage);
-        title.loadTexture( "missing-homework.png" );
+        title.loadTexture( "a-bad-dream.png" );
         TextButton startButton = new TextButton( "Start", BaseGame.textButtonStyle );
 
         startButton.addListener(
