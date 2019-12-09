@@ -2,6 +2,8 @@
 
 This is a visual novel that is created using LibGdx. LibGdx is a open sourced, cross platform game development framwork that is community driven. 
 
+![](tutorial_Images/bad_Dream.png)
+
 ## Requirements
 
 There are only a few requirements that you will need to easily run this project. 
@@ -13,6 +15,23 @@ There are only a few requirements that you will need to easily run this project.
 
 Once you cloned the repository to your Intellij, One of the first things you want to do is open the project tab on your left -> click on the desktop folder -> click on the src folder -> click on the com.mygdx.game.desktop folder -> open the DesktopLauncher Class.
 
+![](tutorial_Images/Windows_Capture1.PNG)
+
 Once you have the DesktopLauncher class open, right next to the hammer there is a add/edit configurations button, click on that. 
 
+![](tutorial_Images/Windows_Capture2.PNG)
+
 Another window should pop up, here we need to set this class as a application configuration. Click on the + sign, look for application and open application. 
+
+![](tutorial_Images/Windows_Capture3.png)
+
+ Click on the + sign, look for application and open application.
+
+![](tutorial_Images/Windows_Capture4.png)
+
+Copy the information that is written to parameter. The click apply and ok.
+
+![](tutorial_Images/Windows_Capture5.png)
+
+You should be able to run the desktopLauncher Class to try out the visual novel in IntelliJ. This method is universal to both mac and windows.
+
