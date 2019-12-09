@@ -76,16 +76,40 @@ public class StoryScreen extends BaseScreen {
 
     public void wakeFromDream()
     {
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.wakeFromDream );
         dialogBox.setText("");
-        rose.addAction( SceneActions.moveToOutsideLeft(0) );
-        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
-        scene.addSegment( new SceneSegment( rose, SceneActions.moveToScreenCenter(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence( "My name is Kelsoe Kismet. I am a student at Aureus Ludus Academy." );
-        addTextSequence( "I can be a little forgetful sometimes. Right now, I'm looking for my homework." );
-                scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
-        scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(1) ));
+        addTextSequence( "Finally...." );
+        addTextSequence( "After spending countless hours grinding away at my software development project." );
+        addTextSequence( "I feel that I may have eased some of the stressed that is drilling within my being." );
+        addTextSequence( "Currently....... I spent the last 3 days trying my best to take all the information from the " );
+        addTextSequence( "book \"Java Game Development with LibGDX\" written by Lee Stemkoski, and man do I feel like I wasted a lot of time. " );
+        addTextSequence( "The difficulty and and complexity of the book makes my head hurt......................................" );
+        addTextSequence( "But even then, I feel more ambitious to try my best, even if I loose out on obtaining the grade I want." );
+        addTextSequence( "Who know's.......... Personally, I think this can be a really big eye opener............. " );
+        addTextSequence( "It may not be necessarily the greatest project but I feel that it would also interest some people who are " );
+        addTextSequence("looking to also get into some form of game development .....");
+        addTextSequence(".....");
+        addTextSequence("Hopefully I can prove that it was worth all of the hassle.");
+        addTextSequence("I mean I have a decent idea on how I want to do it but it will be a lot of learning that I am not totally prepared for...");
+        addTextSequence("Right now all I want to do is imagine.");
+        addTextSequence("Imagine the snow falling in the middle of the woods.");
+        scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Imagining every single snowflake, gliding in the sky. Soaring in the wind.................");
+        addTextSequence("And as the snowflake hits my face, I come to the realization that the snow isn't cold. Its... Warm");
+        addTextSequence( ".................." );
+        addTextSequence("I just want to stay here");
+        addTextSequence( ".................." );
+        addTextSequence( "I am comforted by the snow. " );
+        addTextSequence( ".................." );
+        addTextSequence( "Just... Keep me here............." );
+        scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
+
+
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
         scene.addSegment( new SceneSegment( background, Actions.run(new Runnable() {
             @Override
@@ -96,7 +120,14 @@ public class StoryScreen extends BaseScreen {
         scene.start();
     }
     public void lateForClassHouse()
-    { }
+    {
+        background.setAnimation( background.lateForClassHouse );
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(0) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
+
+    }
     public void lateForClassRunning()
     { }
     public void lateForClassGetARide()
