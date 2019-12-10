@@ -1,7 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.graphics.g2d.Animation;
+        import com.badlogic.gdx.graphics.g2d.Animation;
 
 public class Rose extends BaseActor{
     public Animation normal;

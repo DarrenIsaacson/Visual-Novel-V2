@@ -125,6 +125,28 @@ public class StoryScreen extends BaseScreen {
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(0) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
         addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("Awe man.");
+        addTextSequence("I think I may have fell out of the bed.. ");
+        addTextSequence("*Scratches head* What time is it.............");
+        addTextSequence(" 10:30! Oh no! I have class");
+        addTextSequence("Crap ");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+
         scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
 
     }
