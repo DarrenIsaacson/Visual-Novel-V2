@@ -5,6 +5,13 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.utils.Align;
+
+
+/**
+ *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
+ */
+
+
 /**
  *  Convenience class for creating custom Action objects
  *    for use with SceneSegment and Scene classes.

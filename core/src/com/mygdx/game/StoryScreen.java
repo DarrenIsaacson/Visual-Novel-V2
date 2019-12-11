@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -13,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent.Type;
 
 ;
 
+
+// Made by Darren
 public class StoryScreen extends BaseScreen {
     Scene scene;
     Background background;
@@ -30,6 +33,8 @@ public class StoryScreen extends BaseScreen {
 
         rose = new Rose(0,0, mainStage);
         rose.setSize(480,600);
+
+
 
         dialogBox = new DialogBox(0,0, uiStage);
         dialogBox.setDialogSize(600, 150);
@@ -111,53 +116,155 @@ public class StoryScreen extends BaseScreen {
 
 
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
-        scene.addSegment( new SceneSegment( background, Actions.run(new Runnable() {
-            @Override
-            public void run() {
-                StoryScreen.this.lateForClassHouse();
-            }
-        }) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassHouse(); }) ));
+
+
         scene.start();
     }
     public void lateForClassHouse()
     {
+        scene.clearSegments();
         background.setAnimation( background.lateForClassHouse );
+        dialogBox.setText("");
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(0) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("Ouch....");
         addTextSequence("Awe man.");
         addTextSequence("I think I may have fell out of the bed.. ");
         addTextSequence("*Scratches head* What time is it.............");
-        addTextSequence(" 10:30! Oh no! I have class");
-        addTextSequence("Crap ");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
-        addTextSequence("BANG!!!!!!!!!!!!!!!!!!!!!");
+        addTextSequence("10:30! Oh no! I have class at 11!");
+        addTextSequence("Crap!");
+        addTextSequence("Normally it takes me 30 minutes to get ready in the morning and it takes me 30 minutes to get to school!!");
+        addTextSequence("I really dont want to go to school smelling bad! What should I do!");
 
-        scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
+        scene.addSegment( new SceneSegment( buttonTable, Actions.show() ));
+// set up options
+        TextButton runToSchoolButton = new TextButton("Get your stuff and leave right away!", BaseGame.textButtonStyle);
+        runToSchoolButton.addListener(
+                (Event e) ->
+                {
+                    if ( !(e instanceof InputEvent) ||
+                            !((InputEvent)e).getType().equals(Type.touchDown) )
+                        return false;
+                    scene.addSegment( new SceneSegment( buttonTable, Actions.hide() ));
+                    addTextSequence( "Im going to just bite the bullet and try to get there as soon as possible." );
+                    addTextSequence( "I dont have time to waste. I got to be on time." );
+                            scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
+                    scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideLeft(0) ));
+                    scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+                    scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassRunning(); }) ));
+                    return false;
+                }
+        );
+
+        TextButton getReadyQuicklyButton = new TextButton("Get ready as fast as possible", BaseGame.textButtonStyle);
+        getReadyQuicklyButton.addListener(
+                (Event e) ->
+                {
+                    if ( !(e instanceof InputEvent) ||
+                            !((InputEvent)e).getType().equals(Type.touchDown) )
+                        return false;
+                    scene.addSegment( new SceneSegment( buttonTable, Actions.hide() ));
+                    addTextSequence( "There is no way im leaving the house without getting ready for the day." );
+                    addTextSequence( "Im going to try to get ready as quickly as possible." );
+                    scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
+                    scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(0) ));
+                    scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+                    scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassGetARide(); }) ));
+                    return false;
+                }
+        );
+
+
+
+//        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+//        scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassRunning(); }) ));
+
+
+        buttonTable.clearChildren();
+        buttonTable.add(runToSchoolButton);
+        buttonTable.row();
+        buttonTable.add(getReadyQuicklyButton);
+
+        scene.start();
+
+
+
 
     }
     public void lateForClassRunning()
-    { }
+    {
+        scene.clearSegments();
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
+        background.setAnimation( background.lateForClassRunning );
+        dialogBox.setText("");
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Man is this exhausting rushing to school.");
+        addTextSequence("If I would of taken the time to get ready I wouldn't have been......");
+        addTextSequence("Nevermind that, I just got to get to school and hopefully get to school on time");
+        addTextSequence("I hope I dont end up there with my clothes soaking with sweat.");
+        addTextSequence("That would be gross.");
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { arriveToSchool(); }) ));
+
+
+
+        scene.start();
+
+
+
+    }
     public void lateForClassGetARide()
-    { }
+    {
+
+    }
     public void arriveToSchool()
-    { }
+    {
+        scene.clearSegments();
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
+        background.setAnimation( background.arriveToSchool );
+        dialogBox.setText("");
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Finally I have arrived");
+        addTextSequence("Every time I get to school I always daydream about the school being so huge.");
+        addTextSequence("Class is usually at 11, so i should rush to my class.");
+        addTextSequence("Hopefully I wont interrupt someone else's presentation");
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { goToClass(); }) ));
+
+        scene.start();
+
+    }
     public void goToClass()
-    { }
+    {
+        scene.clearSegments();
+        background.setAnimation( background.goToClass );
+        dialogBox.setText("");
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(0) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Right as I get into class I realize that nobody was here except the professor");
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { theEnd(); }) ));
+
+        scene.start();
+
+    }
+
+    public void theEnd(){
+
+        scene.clearSegments();
+        background.setAnimation( background.theEnd );
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Thank you for playing.");
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { theEnd(); }) ));
+
+        scene.start();
+
+    }
     public void update(float dt)
     { }
     public boolean keyDown(int keyCode)

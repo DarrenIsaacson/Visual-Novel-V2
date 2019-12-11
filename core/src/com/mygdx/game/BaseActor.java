@@ -19,6 +19,11 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
+
+/**
+ *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
+ */
+
 /**
  * Extends functionality of the LibGDX Actor class.
  * by adding support for textures/animation, 

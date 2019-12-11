@@ -3,6 +3,11 @@ package com.mygdx.game;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import java.util.ArrayList;
 
+/**
+ *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
+ */
+
+
 public class Scene extends Actor {
     private ArrayList<SceneSegment> segmentList;
     private int index;
