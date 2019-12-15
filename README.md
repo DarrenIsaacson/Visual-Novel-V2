@@ -35,6 +35,15 @@ Copy the information that is written to parameter. The click apply and ok.
 
 You should be able to run the desktopLauncher Class to try out the visual novel in IntelliJ. This method is universal to both mac and windows.
 
+
+## Known bugs
+
+This project was made with java version 12. If you are using a java version that is older than the projects java te functionality of the program may run into issues. To fix the problem, You may have to modify the build.gradle files found inside of the core and desktop folders.
+
+
+
+
+
 # Credit
 
 Main Contributors to the project is Lee Stemkoski who is the writer of Java Game Development with LibGDX. I personally did more of the code modifications.
