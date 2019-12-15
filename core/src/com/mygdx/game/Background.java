@@ -3,7 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-
+// Made by Darren
 
 public class Background extends BaseActor {
     public Animation wakeFromDream;
@@ -12,6 +12,7 @@ public class Background extends BaseActor {
     public Animation lateForClassGetARide;
     public Animation arriveToSchool;
     public Animation goToClass;
+    public Animation theEnd;
 
     public Background(float x,  float y, Stage s){
         super(x,y,s);
@@ -22,6 +23,7 @@ public class Background extends BaseActor {
         lateForClassGetARide = loadTexture("suburb_roadcenter.jpg");
         arriveToSchool = loadTexture("school_courtyard_ss.jpg");
         goToClass = loadTexture("school_council.jpg");
+        theEnd = loadTexture("the-end.png");
         setSize(1000,600);
 
     }

@@ -3,6 +3,10 @@ package com.mygdx.game;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Action;
 
+/**
+ *  This is directly from the book
+ */
+
 public class TypewriterAction extends SetTextAction{
 
     private float elapsedTime;

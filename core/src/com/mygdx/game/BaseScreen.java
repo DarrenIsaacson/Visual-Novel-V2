@@ -8,6 +8,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
+/**
+ *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
+ */
+
+
 public abstract class BaseScreen implements Screen, InputProcessor
 {
     protected Stage mainStage;

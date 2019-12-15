@@ -20,29 +20,23 @@ public class MenuScreen extends BaseScreen{
         TextButton startButton = new TextButton( "Start", BaseGame.textButtonStyle );
 
         startButton.addListener(
-                new EventListener() {
-                    @Override
-                    public boolean handle(Event e) {
-                        if (!(e instanceof InputEvent) ||
-                                !((InputEvent) e).getType().equals(Type.touchDown))
-                            return false;
-                        BaseGame.setActiveScreen(new StoryScreen());
+                e -> {
+                    if (!(e instanceof InputEvent) ||
+                            !((InputEvent) e).getType().equals(Type.touchDown))
                         return false;
-                    }
+                    BaseGame.setActiveScreen(new StoryScreen());
+                    return false;
                 }
         );
 
         TextButton quitButton = new TextButton( "Quit", BaseGame.textButtonStyle );
         quitButton.addListener(
-                new EventListener() {
-                    @Override
-                    public boolean handle(Event e) {
-                        if (!(e instanceof InputEvent) ||
-                                !((InputEvent) e).getType().equals(Type.touchDown))
-                            return false;
-                        Gdx.app.exit();
+                e -> {
+                    if (!(e instanceof InputEvent) ||
+                            !((InputEvent) e).getType().equals(Type.touchDown))
                         return false;
-                    }
+                    Gdx.app.exit();
+                    return false;
                 }
         );
         uiTable.add(title).colspan(2);

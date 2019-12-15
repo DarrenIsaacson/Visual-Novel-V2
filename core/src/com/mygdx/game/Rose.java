@@ -3,6 +3,8 @@ package com.mygdx.game;
 import com.badlogic.gdx.scenes.scene2d.Stage;
         import com.badlogic.gdx.graphics.g2d.Animation;
 
+// Made by Darren
+
 public class Rose extends BaseActor{
     public Animation normal;
     public Animation grin;

@@ -3,6 +3,11 @@ package com.mygdx.game;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+/**
+ *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
+ */
+
+
 public class  SceneSegment
 {
     private Actor actor;

@@ -3,6 +3,12 @@ package com.mygdx.game;
 import com.badlogic.gdx.scenes.scene2d.Action;
 
 /**
+ *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
+ */
+
+
+
+/**
  *  Designed for use in concert with 
  *      the DialogBox, SceneSegment, and Scene classes.
  */
