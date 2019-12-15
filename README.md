@@ -40,7 +40,7 @@ You should be able to run the desktopLauncher Class to try out the visual novel 
 
 This project was made with java version 12. If you are using a java version that is older than the projects java te functionality of the program may run into issues. To fix the problem, You may have to modify the build.gradle files found inside of the core and desktop folders.
 
-
+Ano
 
 
 

@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputEvent.Type;
 
-;
+;import static com.mygdx.game.BaseGame.setActiveScreen;
 
 
 // Made by Darren
@@ -20,6 +20,8 @@ public class StoryScreen extends BaseScreen {
     Scene scene;
     Background background;
     Rose rose;
+    Jackson jackson;
+    Teacher teacher;
     DialogBox dialogBox;
     BaseActor continueKey;
     Table buttonTable;
@@ -170,7 +172,7 @@ public class StoryScreen extends BaseScreen {
                     scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
                     scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(0) ));
                     scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
-                    scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassGetARide(); }) ));
+                    scene.addSegment( new SceneSegment( background, Actions.run(() -> { getReadyFast(); }) ));
                     return false;
                 }
         );
@@ -196,7 +198,7 @@ public class StoryScreen extends BaseScreen {
     {
         scene.clearSegments();
         rose.addAction(SceneActions.moveToOutsideLeft(0));
-        background.setAnimation( background.lateForClassRunning );
+        background.setAnimation( background.lateForClassGetARide );
         dialogBox.setText("");
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
@@ -215,8 +217,75 @@ public class StoryScreen extends BaseScreen {
 
 
     }
+
+    public void getReadyFast()
+    {
+        scene.clearSegments();
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
+        background.setAnimation( background.getReadyFast );
+        dialogBox.setText("");
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Getting ready as fast as possible has become pretty stressful");
+        addTextSequence("So far I took a quick shower, brushed my teeth, combed my hair, and put on deodorant.");
+        addTextSequence("Now I just gotta grab something to eat really quickly.");
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { runToTheKitchen(); }) ));
+
+
+
+        scene.start();
+    }
+
+    public void runToTheKitchen()
+    {
+        scene.clearSegments();
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
+        background.setAnimation( background.runToTheKitchen );
+        dialogBox.setText("");
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        addTextSequence("Okay. Now I have all of my food, I gotta rush to class. This really stinks");
+        addTextSequence("AHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!");
+        scene.addSegment( new SceneSegment( rose, SceneActions.moveToScreenCenter(1)));
+        addTextSequence("(Rose) Sorry I didn't mean to scare you. I didn't have class today so I was just relaxing on the couch.");
+        addTextSequence("(Rose) Are you okay?");
+        addTextSequence("Yeah im okay? Actually I am in a rush. Do you think that you could give me a ride to work.");
+        addTextSequence("(Rose)Yeah sure thing, but you owe me food later. Haha");
+        addTextSequence("You got a deal.");
+        scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(1)));
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassGetARide(); }) ));
+
+
+
+        scene.start();
+    }
+
     public void lateForClassGetARide()
     {
+        scene.clearSegments();
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
+        background.setAnimation( background.lateForClassGetARide );
+        dialogBox.setText("");
+        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
+        scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
+        scene.addSegment( new SceneSegment( rose, SceneActions.moveToScreenCenter(1)));
+        addTextSequence("(Rose) You are totally so lucky that I didn't have school today. All of my finals happen to be finished.");
+        addTextSequence("Honestly, I thought I had the alarm set for the right time.");
+        addTextSequence("(Rose) Conveniently, we live 10 min away. So this will be a quick ride. ");
+        addTextSequence("Exactly. Thanks again for the ride today.");
+        addTextSequence("(Rose) No problem. ");
+        addTextSequence("(Rose) We are here now. Ill see you later! ");
+        addTextSequence("Thanks ill see you later!");
+        scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(1)));
+        rose.setSize(480,600);
+        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> { arriveToSchool(); }) ));
+
+
+        scene.start();
+
 
     }
     public void arriveToSchool()
@@ -256,11 +325,10 @@ public class StoryScreen extends BaseScreen {
 
         scene.clearSegments();
         background.setAnimation( background.theEnd );
-        scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
         addTextSequence("Thank you for playing.");
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
-        scene.addSegment( new SceneSegment( background, Actions.run(() -> { theEnd(); }) ));
+        scene.addSegment( new SceneSegment( background, Actions.run(() -> {setActiveScreen(new MenuScreen()); }) ));
 
         scene.start();
 

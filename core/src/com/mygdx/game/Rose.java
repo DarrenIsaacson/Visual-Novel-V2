@@ -13,7 +13,9 @@ public class Rose extends BaseActor{
 
         super(x,y,s);
         normal = loadTexture("Rose normal.png");
-        grin = loadTexture("Rose normal.png");
+        grin = loadTexture("Rose grin.png");
+
+
 
     }
 

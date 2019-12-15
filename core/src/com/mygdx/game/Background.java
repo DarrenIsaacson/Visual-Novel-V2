@@ -9,6 +9,8 @@ public class Background extends BaseActor {
     public Animation wakeFromDream;
     public Animation lateForClassHouse;
     public Animation lateForClassRunning;
+    public Animation getReadyFast;
+    public Animation runToTheKitchen;
     public Animation lateForClassGetARide;
     public Animation arriveToSchool;
     public Animation goToClass;
@@ -20,6 +22,8 @@ public class Background extends BaseActor {
         wakeFromDream = loadTexture("op_snowywoods.jpg");
         lateForClassHouse = loadTexture("school_dormlilly.jpg");
         lateForClassRunning = loadTexture("shizu_park.jpg");
+        getReadyFast = loadTexture("hok_bath.jpg");
+        runToTheKitchen = loadTexture("hok_kitchen.jpg");
         lateForClassGetARide = loadTexture("suburb_roadcenter.jpg");
         arriveToSchool = loadTexture("school_courtyard_ss.jpg");
         goToClass = loadTexture("school_council.jpg");
