@@ -1,9 +1,6 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.scenes.scene2d.Action;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -12,7 +9,12 @@ import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputEvent.Type;
 
-;import static com.mygdx.game.BaseGame.setActiveScreen;
+;import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import static com.mygdx.game.BaseGame.setActiveScreen;
 
 
 // Made by Darren
@@ -83,40 +85,19 @@ public class StoryScreen extends BaseScreen {
 
     public void wakeFromDream()
     {
+        ArrayList<String> wakeFromDreamText = textFileReader("wakeFromDream.txt");
+        ArrayList<String> wakeFromDreamTextpt2 = textFileReader("wakeFromDreampt2.txt");
         rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.wakeFromDream );
         dialogBox.setText("");
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence( "Finally...." );
-        addTextSequence( "After spending countless hours grinding away at my software development project." );
-        addTextSequence( "I feel that I may have eased some of the stressed that is drilling within my being." );
-        addTextSequence( "Currently....... I spent the last 3 days trying my best to take all the information from the " );
-        addTextSequence( "book \"Java Game Development with LibGDX\" written by Lee Stemkoski, and man do I feel like I wasted a lot of time. " );
-        addTextSequence( "The difficulty and and complexity of the book makes my head hurt......................................" );
-        addTextSequence( "But even then, I feel more ambitious to try my best, even if I loose out on obtaining the grade I want." );
-        addTextSequence( "Who know's.......... Personally, I think this can be a really big eye opener............. " );
-        addTextSequence( "It may not be necessarily the greatest project but I feel that it would also interest some people who are " );
-        addTextSequence("looking to also get into some form of game development .....");
-        addTextSequence(".....");
-        addTextSequence("Hopefully I can prove that it was worth all of the hassle.");
-        addTextSequence("I mean I have a decent idea on how I want to do it but it will be a lot of learning that I am not totally prepared for...");
-        addTextSequence("Right now all I want to do is imagine.");
-        addTextSequence("Imagine the snow falling in the middle of the woods.");
+        readArray(wakeFromDreamText);
         scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
-
+        dialogBox.setText("");
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("Imagining every single snowflake, gliding in the sky. Soaring in the wind.................");
-        addTextSequence("And as the snowflake hits my face, I come to the realization that the snow isn't cold. Its... Warm");
-        addTextSequence( ".................." );
-        addTextSequence("I just want to stay here");
-        addTextSequence( ".................." );
-        addTextSequence( "I am comforted by the snow. " );
-        addTextSequence( ".................." );
-        addTextSequence( "Just... Keep me here............." );
+        readArray(wakeFromDreamTextpt2);
         scene.addSegment( new SceneSegment( dialogBox, Actions.hide() ));
-
-
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
         scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassHouse(); }) ));
 
@@ -125,20 +106,14 @@ public class StoryScreen extends BaseScreen {
     }
     public void lateForClassHouse()
     {
+        ArrayList<String> lateForClassHouseText = textFileReader("lateForClassHouse.txt");
         scene.clearSegments();
         background.setAnimation( background.lateForClassHouse );
         dialogBox.setText("");
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(0) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("Ouch....");
-        addTextSequence("Awe man.");
-        addTextSequence("I think I may have fell out of the bed.. ");
-        addTextSequence("*Scratches head* What time is it.............");
-        addTextSequence("10:30! Oh no! I have class at 11!");
-        addTextSequence("Crap!");
-        addTextSequence("Normally it takes me 30 minutes to get ready in the morning and it takes me 30 minutes to get to school!!");
-        addTextSequence("I really dont want to go to school smelling bad! What should I do!");
-
+        readArray(lateForClassHouseText);
         scene.addSegment( new SceneSegment( buttonTable, Actions.show() ));
 // set up options
         TextButton runToSchoolButton = new TextButton("Get your stuff and leave right away!", BaseGame.textButtonStyle);
@@ -178,11 +153,6 @@ public class StoryScreen extends BaseScreen {
         );
 
 
-
-//        scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
-//        scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassRunning(); }) ));
-
-
         buttonTable.clearChildren();
         buttonTable.add(runToSchoolButton);
         buttonTable.row();
@@ -196,17 +166,15 @@ public class StoryScreen extends BaseScreen {
     }
     public void lateForClassRunning()
     {
+        ArrayList<String> lateForClassRunningText = textFileReader("lateForClassRunning.txt");
         scene.clearSegments();
         rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.lateForClassGetARide );
         dialogBox.setText("");
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("Man is this exhausting rushing to school.");
-        addTextSequence("If I would of taken the time to get ready I wouldn't have been......");
-        addTextSequence("Nevermind that, I just got to get to school and hopefully get to school on time");
-        addTextSequence("I hope I dont end up there with my clothes soaking with sweat.");
-        addTextSequence("That would be gross.");
+        readArray(lateForClassRunningText);
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
         scene.addSegment( new SceneSegment( background, Actions.run(() -> { arriveToSchool(); }) ));
 
@@ -220,15 +188,16 @@ public class StoryScreen extends BaseScreen {
 
     public void getReadyFast()
     {
+        ArrayList<String> getReadyFastText = textFileReader("getReadyFast.txt");
         scene.clearSegments();
+
         rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.getReadyFast );
         dialogBox.setText("");
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("Getting ready as fast as possible has become pretty stressful");
-        addTextSequence("So far I took a quick shower, brushed my teeth, combed my hair, and put on deodorant.");
-        addTextSequence("Now I just gotta grab something to eat really quickly.");
+        readArray(getReadyFastText);
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
         scene.addSegment( new SceneSegment( background, Actions.run(() -> { runToTheKitchen(); }) ));
 
@@ -239,20 +208,18 @@ public class StoryScreen extends BaseScreen {
 
     public void runToTheKitchen()
     {
+        ArrayList<String> runToTheKitchenText = textFileReader("runToTheKitchen.txt");
+        ArrayList<String> runToKitchenTextPt2 = textFileReader("runToTheKitchenpt2.txt");
         scene.clearSegments();
         rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.runToTheKitchen );
         dialogBox.setText("");
+        rose.addAction(SceneActions.moveToOutsideLeft(0));
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("Okay. Now I have all of my food, I gotta rush to class. This really stinks");
-        addTextSequence("AHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!");
+        readArray(runToTheKitchenText);
         scene.addSegment( new SceneSegment( rose, SceneActions.moveToScreenCenter(1)));
-        addTextSequence("(Rose) Sorry I didn't mean to scare you. I didn't have class today so I was just relaxing on the couch.");
-        addTextSequence("(Rose) Are you okay?");
-        addTextSequence("Yeah im okay? Actually I am in a rush. Do you think that you could give me a ride to work.");
-        addTextSequence("(Rose)Yeah sure thing, but you owe me food later. Haha");
-        addTextSequence("You got a deal.");
+        readArray(runToKitchenTextPt2);
         scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(1)));
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
         scene.addSegment( new SceneSegment( background, Actions.run(() -> { lateForClassGetARide(); }) ));
@@ -264,6 +231,7 @@ public class StoryScreen extends BaseScreen {
 
     public void lateForClassGetARide()
     {
+        ArrayList<String> lateForClasssGetARide = textFileReader("lateForClassGetARide.txt");
         scene.clearSegments();
         rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.lateForClassGetARide );
@@ -271,13 +239,7 @@ public class StoryScreen extends BaseScreen {
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
         scene.addSegment( new SceneSegment( rose, SceneActions.moveToScreenCenter(1)));
-        addTextSequence("(Rose) You are totally so lucky that I didn't have school today. All of my finals happen to be finished.");
-        addTextSequence("Honestly, I thought I had the alarm set for the right time.");
-        addTextSequence("(Rose) Conveniently, we live 10 min away. So this will be a quick ride. ");
-        addTextSequence("Exactly. Thanks again for the ride today.");
-        addTextSequence("(Rose) No problem. ");
-        addTextSequence("(Rose) We are here now. Ill see you later! ");
-        addTextSequence("Thanks ill see you later!");
+        readArray(lateForClasssGetARide);
         scene.addSegment( new SceneSegment( rose, SceneActions.moveToOutsideRight(1)));
         rose.setSize(480,600);
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
@@ -290,16 +252,14 @@ public class StoryScreen extends BaseScreen {
     }
     public void arriveToSchool()
     {
+        ArrayList<String> arriveToSchoolText = textFileReader("arriveToSchool.txt");
         scene.clearSegments();
         rose.addAction(SceneActions.moveToOutsideLeft(0));
         background.setAnimation( background.arriveToSchool );
         dialogBox.setText("");
         scene.addSegment( new SceneSegment( background, Actions.fadeIn(1) ));
         scene.addSegment( new SceneSegment( dialogBox, Actions.show() ));
-        addTextSequence("Finally I have arrived");
-        addTextSequence("Every time I get to school I always daydream about the school being so huge.");
-        addTextSequence("Class is usually at 11, so i should rush to my class.");
-        addTextSequence("Hopefully I wont interrupt someone else's presentation");
+        readArray(arriveToSchoolText);
         scene.addSegment( new SceneSegment( background, Actions.fadeOut(1) ));
         scene.addSegment( new SceneSegment( background, Actions.run(() -> { goToClass(); }) ));
 
@@ -333,6 +293,7 @@ public class StoryScreen extends BaseScreen {
         scene.start();
 
     }
+
     public void update(float dt)
     { }
     public boolean keyDown(int keyCode)
@@ -341,5 +302,33 @@ public class StoryScreen extends BaseScreen {
             scene.loadNextSegment();
 
         return false;
+    }
+
+    public ArrayList<String> textFileReader (String fileName){
+        ArrayList<String> sentences  = new ArrayList<>();
+        try {
+
+
+            FileReader fr = new FileReader(fileName);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while ((line = br.readLine()) != null){
+
+                sentences.add(line);
+            }
+            br.close();
+        }catch (IOException ioe){
+
+            System.out.println("File not found");
+        }
+        return sentences;
+
+    }
+
+    public void  readArray(ArrayList<String> text){
+        for (String s : text){
+            addTextSequence(s);
+        }
     }
 }
