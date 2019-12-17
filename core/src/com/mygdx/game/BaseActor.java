@@ -24,6 +24,19 @@ import java.util.ArrayList;
  *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
  */
 
+/***
+ *
+ * This class serves as one of the 4 main parts involved with creating a game.
+ *
+ * From my understanding, this entire class is based around the libGDX classes such as the Stage class, Actor Class,
+ * Animation class, Screen Class, and a few more. It provides a multitude of a bunch of different features that template
+ * the creation ofd
+ * All of these classes function piggyback off of each other to create the gui and functionality of each image.
+ *
+ * The base actor class is extending the Group Class that is provided by the libGDX library. This class helps layer
+ * images on top of each other Which is important for setting each actor in the correct position.
+ */
+
 /**
  * Extends functionality of the LibGDX Actor class.
  * by adding support for textures/animation, 

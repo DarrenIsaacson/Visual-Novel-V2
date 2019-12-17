@@ -4,6 +4,22 @@ This is a visual novel that is created using LibGdx. LibGdx is a open sourced, c
 
 ![](tutorial_Images/bad_Dream.png)
 
+## Information about the Game
+
+This is my first introduction into some of the new and advanced methods that LibGDX provided. There is a lot that I am still unaware about but I will try my best to give as much description about the project as I can.
+
+This game contains:
+ - Adjustable window
+ - A menu Screen
+ - 8 different scenes
+ - One character
+ - A bunch of dialog
+
+
+These are most of the classes displayed in the project and their relationships and extensions of classes.
+
+![](tutorial_Images/Relationship_0.01.png)
+
 ## Requirements
 
 There are only a few requirements that you will need to easily run this project. 
@@ -40,7 +56,6 @@ You should be able to run the desktopLauncher Class to try out the visual novel 
 
 This project was made with java version 12. If you are using a java version that is older than the projects java te functionality of the program may run into issues. To fix the problem, You may have to modify the build.gradle files found inside of the core and desktop folders.
 
-Ano
 
 
 

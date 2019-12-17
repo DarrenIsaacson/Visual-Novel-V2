@@ -13,6 +13,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
  */
 
 
+/***
+ * This class serves as one of the 4 main parts involved with creating a game. This Class specifically
+ * focuses on changing the screen on the interface for the game.
+ */
+
+
 public abstract class BaseScreen implements Screen, InputProcessor
 {
     protected Stage mainStage;

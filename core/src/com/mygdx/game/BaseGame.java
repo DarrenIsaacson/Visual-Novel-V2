@@ -17,6 +17,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
  *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
  */
 
+
+/***
+ * This class serves as one of the 4 main parts involved with creating a game. This Class specifically
+ * focuses on storing a reference point to the Game object initialized by the DesktopLauncher.
+ */
+
 /**
  *  Created when program is launched; 
  *  manages the screens that appear during the game.

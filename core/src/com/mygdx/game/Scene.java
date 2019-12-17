@@ -7,6 +7,12 @@ import java.util.ArrayList;
  *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
  */
 
+/***
+ *  This manages a collection of objects.
+ *
+ *  This extends the Actor class because you can write and act method that will automatically
+ *  advance through scene segments when corresponding actions have been completed.
+ */
 
 public class Scene extends Actor {
     private ArrayList<SceneSegment> segmentList;

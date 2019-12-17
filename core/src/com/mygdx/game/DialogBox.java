@@ -9,6 +9,10 @@ import com.badlogic.gdx.utils.Align;
  *  This is directly from the book Java Game Development with LibGDX written by Lee Stemkoski
  */
 
+/***
+ * This class stores a background image and label and has a set of methods that can be used to configure the appearance.
+ */
+
 public class DialogBox extends BaseActor
 {
     private Label dialogLabel;
@@ -33,7 +37,8 @@ public class DialogBox extends BaseActor
         dialogLabel.setWidth( width - 2 * padding );
         dialogLabel.setHeight( height - 2 * padding );
     }
-    
+
+    // This is the main setter for the dialog that is used inside of the visual novel.
     public void setText(String text)
     {  dialogLabel.setText(text);  }
 
